@@ -1,6 +1,7 @@
 import React from 'react'
 import Typography from '@material-ui/core/Typography'
 
+
 function Header() {
   return(
     <React.Fragment>
@@ -11,7 +12,7 @@ function Header() {
       >
         Password Generator
       </Typography>
-      
+
     </React.Fragment>
   )
 }
