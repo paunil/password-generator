@@ -56,9 +56,14 @@ function App() {
     symbols: '!@$%^&'
   })
 
+  // holds state of current password
   const [currentPassword, updateCurrentPassword] = useState(
     generatePassword(passwordSettings)
   )
+
+  const refreshPassword = () => {
+    updateCurrentPassword(generatePassword(passwordSettings))
+  }
 
 
   return (
@@ -111,7 +116,8 @@ function App() {
                   sm={10}
                 >
                   <PasswordField 
-                  currentPassword={currentPassword}
+                    currentPassword={currentPassword}
+                    refreshPassword={refreshPassword}
                   />
                 </Grid>
                 
@@ -121,7 +127,7 @@ function App() {
                   xs={12}
                   sm={2}
                 >
-                  <CopyButton />
+                  <CopyButton currentPassword={currentPassword}/>
                 </Grid>
               </Grid>
 

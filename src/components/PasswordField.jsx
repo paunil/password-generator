@@ -49,7 +49,10 @@ function PasswordField(props) {
           InputProps={{
             endAdornment: 
 
-            <IconButton aria-label="autorenew">
+            <IconButton 
+              aria-label="autorenew"
+              onClick={props.refreshPassword}
+            >
 
               <AutorenewIcon fontSize="large"/>
 

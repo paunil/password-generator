@@ -1,8 +1,9 @@
 import React from 'react'
 import Button from '@material-ui/core/Button'
+import copy from 'copy-to-clipboard'
 
 
-function CopyButton() {
+function CopyButton(props) {
   return(
     <React.Fragment>
 
@@ -11,6 +12,7 @@ function CopyButton() {
         variant="contained" 
         size="large"
         fullWidth={true}
+        onClick={() => copy(props.currentPassword)}
         style={{color:"white"}}
         color="primary" 
       >
