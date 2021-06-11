@@ -15,6 +15,7 @@ function SymbolSelector() {
 
       <Checkbox
         defaultChecked
+        color="primary"
       />
 
       <TextField

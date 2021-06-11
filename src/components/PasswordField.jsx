@@ -21,6 +21,7 @@ function PasswordField() {
           md={2}
         >
           <TextField
+            id="length-box-md"
             variant="outlined"
             size="medium"
             fullWidth={true}

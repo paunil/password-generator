@@ -1,0 +1,24 @@
+html, body {
+  /* makes body fill page height, otherwise background won't work */
+  height: 100%;
+
+  background: linear-gradient(to bottom, #00c2cb 0%, #ffffff 100%);
+}
+
+#app-grid>.MuiGrid-item>.MuiPaper-root {
+  padding: 10%;
+}
+
+#length-box-md::-webkit-inner-spin-button, 
+#length-box-md::-webkit-outer-spin-button {  
+  opacity: 1;
+}
+
+#copy-button {
+  height: 100%;
+  padding: 0px;
+}
+
+#custom-options {
+  margin-top: 5%;
+}

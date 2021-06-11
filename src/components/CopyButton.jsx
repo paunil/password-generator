@@ -7,9 +7,12 @@ function CopyButton() {
     <React.Fragment>
 
       <Button 
-      variant="contained" 
-      size="large"
-      fullWidth={true} 
+        id="copy-button" 
+        variant="contained" 
+        size="large"
+        fullWidth={true}
+        style={{color:"white"}}
+        color="primary" 
       >
         Copy
       </Button>

@@ -8,7 +8,8 @@ function Header() {
 
       <Typography 
         align="center" 
-        style={{margin: "10% 0% 4% 0%"}}
+        variant="h2"
+        style={{margin: "8% 0% 4% 0%", color: "white"}}
       >
         Password Generator
       </Typography>

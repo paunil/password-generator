@@ -19,6 +19,7 @@ function PasswordOptions() {
       >
         <Checkbox
           defaultChecked
+          color="primary" 
         />
         <Typography>A-Z</Typography>
       </Grid>
@@ -35,6 +36,7 @@ function PasswordOptions() {
       >
         <Checkbox
           defaultChecked
+          color="primary" 
         />
         <Typography>a-z</Typography>
       </Grid>
@@ -51,6 +53,7 @@ function PasswordOptions() {
       >
         <Checkbox
           defaultChecked
+          color="primary" 
         />
         <Typography>0-9</Typography>
       </Grid>
