@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { Grid, Paper } from '@material-ui/core'
 import Hidden from '@material-ui/core/Hidden'
@@ -12,23 +12,53 @@ import PasswordOptions from './PasswordOptions.jsx'
 import SymbolSelector from './SymbolSelector.jsx'
 
 
+// color palette
+let theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: "#00c2cb"
+    } 
+  }
+})
+
+// makes header font size responsive
+theme = responsiveFontSizes(theme, {
+  breakpoints: ["sm", "md"],
+  factor: 4,
+  variants: ["h2"]
+})
+
+// generate a random password using settings
+const generatePassword = (settings) => {
+  let result = []
+  let characters = (settings.uppercase ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : '')
+    + (settings.lowercase ? 'abcdefghijklmnopqrstuvwxyz' : '')
+    + (settings.numbers ? '0123456789' : '')
+    + settings.symbols;
+
+  let charactersLength = characters.length
+  for (var i = 0; i < settings.length; i++) {
+    result.push(characters.charAt(Math.floor(Math.random() *
+      charactersLength)))
+  }
+  return result.join('')
+}
+
+
 function App() {  
 
-  // color palette
-  let theme = createMuiTheme({
-    palette: {
-      primary: {
-        main: "#00c2cb"
-      } 
-    }
+  // use to determine password characters
+  const [passwordSettings, updatePasswordSettings] = useState ({
+    length: 12,
+    uppercase: true,
+    lowercase: true,
+    numbers: true,
+    symbols: '!@$%^&'
   })
 
-  // makes header font size responsive
-  theme = responsiveFontSizes(theme, {
-    breakpoints: ["sm", "md"],
-    factor: 4,
-    variants: ["h2"]
-  })
+  const [currentPassword, updateCurrentPassword] = useState(
+    generatePassword(passwordSettings)
+  )
 
 
   return (
@@ -80,7 +110,9 @@ function App() {
                   xs={12}
                   sm={10}
                 >
-                  <PasswordField />
+                  <PasswordField 
+                  currentPassword={currentPassword}
+                  />
                 </Grid>
                 
                 {/* CopyButton */}

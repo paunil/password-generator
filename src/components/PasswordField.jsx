@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 
 
-function PasswordField() {
+function PasswordField(props) {
   return(
     <Grid 
       container 
@@ -43,6 +43,7 @@ function PasswordField() {
         md={10}
       >
         <TextField
+          value={props.currentPassword}
           fullWidth={true}
           variant="outlined"
           InputProps={{
