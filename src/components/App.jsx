@@ -221,7 +221,9 @@ function App() {
                   sm={8}
                   direction="row"
                 >
-                  <PasswordOptions />
+                  <PasswordOptions 
+                    updateSubSettings={updateSubSettings}
+                  />
                 </Grid>
               
                 {/* SymbolSelector */}
