@@ -35,7 +35,7 @@ const generatePassword = (settings) => {
   let characters = (settings.uppercase ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : '')
     + (settings.lowercase ? 'abcdefghijklmnopqrstuvwxyz' : '')
     + (settings.numbers ? '0123456789' : '')
-    + settings.symbols;
+    + (settings.symbolsEnabled ? settings.symbols : '')
 
   let charactersLength = characters.length
   for (var i = 0; i < settings.length; i++) {
@@ -54,6 +54,7 @@ function App() {
     uppercase: true,
     lowercase: true,
     numbers: true,
+    symbolsEnabled: true,
     symbols: '!@$%^&'
   })
 
@@ -74,6 +75,7 @@ function App() {
       uppercase: settings.uppercase !== undefined ? settings.uppercase : passwordSettings.uppercase,
       lowercase: settings.lowercase !== undefined ? settings.lowercase : passwordSettings.lowercase,
       numbers: settings.numbers !== undefined ? settings.numbers : passwordSettings.numbers,
+      symbolsEnabled: settings.symbolsEnabled !== undefined ? settings.symbolsEnabled : passwordSettings.symbolsEnabled,
       symbols: settings.symbols !== undefined ? settings.symbols : passwordSettings.symbols
     }
     updatePasswordSettings(newSettings)
@@ -232,7 +234,10 @@ function App() {
                   xs={12}
                   sm={4}
                 >
-                  <SymbolSelector />
+                  <SymbolSelector 
+                    updateSubSettings={updateSubSettings}
+                    passwordSettings={passwordSettings}
+                  />
                 </Grid>
               </Grid>
 
