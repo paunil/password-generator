@@ -181,6 +181,7 @@ function App() {
                     refreshPassword={refreshPassword}
                     updateSubSettings={updateSubSettings}
                     passwordSettings={passwordSettings}
+                    updateCurrentPassword={updateCurrentPassword}
                   />
                 </Grid>
                 
