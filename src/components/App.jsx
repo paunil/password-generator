@@ -24,7 +24,7 @@ let theme = createMuiTheme({
 
 // makes header font size responsive
 theme = responsiveFontSizes(theme, {
-  breakpoints: ["sm", "md"],
+  breakpoints: ["sm", "md", "lg"],
   factor: 4,
   variants: ["h2"]
 })
