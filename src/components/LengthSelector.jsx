@@ -6,7 +6,37 @@ import Hidden from '@material-ui/core/Hidden'
 import Typography from '@material-ui/core/Typography'
 
 
-function LengthSelector() {
+function LengthSelector(props) {
+
+  // update length setting based on textfield value
+  const handleInputChange = (event) => {
+    const newValue = event.target.value === '' ? '' : Number(event.target.value)
+    props.updateSubSettings({
+      length: newValue
+    })
+  }
+
+  // update length setting based on slider value
+  const handleSliderChange = (event, newValue) => {
+    props.updateSubSettings({
+      length: newValue
+    })
+  }
+
+  // normalize value on bad input
+  const handleBlur = () => {
+    if (props.passwordSettings.length < 0) {
+      props.updateSubSettings({
+        length: 0
+      })
+    } else if (props.passwordSettings.length > 30) {
+      props.updateSubSettings({
+        length: 30
+      })
+    }
+  }
+
+
   return(
     <Grid
       item 
@@ -38,16 +68,18 @@ function LengthSelector() {
           variant="outlined" 
           size="small" 
           fullWidth={true} 
+          onChange={handleInputChange}
+          value={props.passwordSettings.length}
+          onBlur={handleBlur}
+          type="number"
           inputProps={{
             step: 1,
             min: 0,
             max: 30,
-            type: 'number',
-            'aria-labelledby': 'input-slider',
+            'aria-labelledby': 'input-slider'
           }}
         />
       </Grid>
-
 
       {/* length slider */}
       <Grid 
@@ -55,8 +87,11 @@ function LengthSelector() {
         xs={8}
       >
         <Slider 
-          id="slider" 
+          id="slider"
+          min={0}
           max={30}
+          value={typeof props.passwordSettings.length === 'number' ? props.passwordSettings.length : 0}
+          onChange={handleSliderChange}
           aria-labelledby="input-slider"
         />
       </Grid>

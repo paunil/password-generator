@@ -21,6 +21,7 @@ function SymbolSelector() {
       <TextField
         variant="outlined"
         size="small"
+        fullWidth={true}
       />
 
     </Grid>
